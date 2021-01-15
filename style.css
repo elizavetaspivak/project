@@ -29,3 +29,46 @@
     height: auto;
     max-width: 150px;
 }
+
+.overlay, .modalContent {
+    z-index: -1;
+    opacity: 0;
+  }
+
+.modal.open .overlay,
+.modal.open .modalContent {
+  z-index: 10;
+  opacity: 1;
+}
+
+.modal.open .overlay {
+  background: rgba(0, 0, 0, .2);
+}
+
+.modal.open .modalContent {
+  transform: scale(1);
+}
+
+.overlay {
+  transition: .2s;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0);
+}
+
+.modalContent {
+  transition: .2s;
+
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  transform: scale(0);
+  display: flex;
+  justify-content: space-between;
+}

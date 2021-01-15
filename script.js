@@ -58,3 +58,32 @@ function createCard(prop) {
 array.forEach(function(card){
     container.insertAdjacentHTML("afterbegin", createCard(card))
 });
+
+const button = document.querySelectorAll('.btns');
+const modal = document.querySelector('.modal')
+const close = document.querySelector('.close').addEventListener('click', () => {
+    modal.classList.remove('open')
+})
+
+function changeModalContent(name, price, desc) {
+    let template = `
+        <div>
+        Вы действительно хотите купить ${name} за <span>${price}</span> копеек?
+        <div>ОПИСАНИЕ</div>
+        <p>${desc}</p>
+        </div>
+    `
+    modal.querySelector('.cont').innerHTML = ''
+    modal.querySelector('.cont').insertAdjacentHTML('afterbegin', template)
+}
+
+button.forEach(function (button){
+    button.addEventListener('click', function (){
+        let name = button.parentNode.parentNode.querySelector('.header').textContent
+        let price = button.parentNode.parentNode.querySelector('.price span').textContent
+        let desc = button.parentNode.parentNode.querySelector('.desc').textContent
+        changeModalContent(name, price, desc)
+        modal.classList.add('open')
+    })
+})
+
