@@ -1,0 +1,31 @@
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    margin: 20px;
+    width: 300px;
+    height: 400px;
+    display: flex;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px -5px #868686;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid transparent;
+}
+
+.card:hover{
+    border: 1px solid black;
+}
+
+.body {
+    display: flex;
+}
+
+.body img{
+    width: 100%;
+    height: auto;
+    max-width: 150px;
+}
